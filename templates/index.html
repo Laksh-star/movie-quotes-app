@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Medium Article Movie Quotes</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Medium Article Movie Quotes</h1>
+            <p>Generate relevant movie quotes for your Medium article</p>
+        </header>
+        
+        <main>
+            <div class="form-container">
+                <form id="quoteForm">
+                    <div class="input-group">
+                        <label for="article_topic">What's your article about?</label>
+                        <textarea id="article_topic" name="article_topic" rows="3" placeholder="Enter a brief description of your Medium article topic..."></textarea>
+                    </div>
+                    <button type="submit" id="generateBtn">
+                        <span class="btn-text">Generate Quotes</span>
+                        <span class="btn-loader"></span>
+                    </button>
+                </form>
+            </div>
+            
+            <div class="results-container hidden" id="resultsContainer">
+                <div class="result-card">
+                    <h3>Standard Quote</h3>
+                    <div class="quote-box" id="quoteWithoutSearch">
+                        <div class="quote-content"></div>
+                        <div class="quote-source"></div>
+                    </div>
+                </div>
+                
+                <div class="result-card">
+                    <h3>Enhanced Quote <span class="badge">Tavily Search</span></h3>
+                    <div class="quote-box" id="quoteWithSearch">
+                        <div class="quote-content"></div>
+                        <div class="quote-source"></div>
+                    </div>
+                    <p class="search-note">This quote is enhanced with Tavily search for better relevance.</p>
+                </div>
+            </div>
+        </main>
+        
+        <footer>
+            <p>Powered by OpenAI GPT-4o-mini and Tavily Search API</p>
+        </footer>
+    </div>
+    
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
