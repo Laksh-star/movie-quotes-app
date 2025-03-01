@@ -8,6 +8,7 @@
     --background-color: #f5f6fa;
     --card-background: #ffffff;
     --shadow-color: rgba(0, 0, 0, 0.1);
+    --modal-background: rgba(0, 0, 0, 0.7);
     --border-radius: 12px;
     --spacing-xs: 0.5rem;
     --spacing-sm: 1rem;
@@ -39,6 +40,7 @@ header {
     text-align: center;
     margin-bottom: var(--spacing-lg);
     padding: var(--spacing-lg) 0;
+    position: relative;
 }
 
 header h1 {
@@ -50,6 +52,18 @@ header h1 {
 header p {
     font-size: 1.2rem;
     color: var(--text-light);
+}
+
+.header-actions {
+    position: absolute;
+    top: var(--spacing-lg);
+    right: 0;
+}
+
+.history-btn {
+    background-color: var(--secondary-color);
+    padding: var(--spacing-xs) var(--spacing-sm);
+    font-size: 0.9rem;
 }
 
 .form-container {
@@ -118,18 +132,24 @@ button:hover {
 
 .results-container {
     display: flex;
-    flex-wrap: wrap;
+    flex-direction: column;
     gap: var(--spacing-md);
     margin-top: var(--spacing-lg);
 }
 
+.timestamp-display {
+    text-align: right;
+    font-size: 0.9rem;
+    color: var(--text-light);
+    margin-bottom: var(--spacing-xs);
+}
+
 .result-card {
-    flex: 1;
-    min-width: 300px;
     background-color: var(--card-background);
     border-radius: var(--border-radius);
     padding: var(--spacing-md);
     box-shadow: 0 4px 12px var(--shadow-color);
+    margin-bottom: var(--spacing-md);
 }
 
 .result-card h3 {
@@ -145,6 +165,12 @@ button:hover {
     padding: 0.2rem 0.5rem;
     border-radius: 20px;
     margin-left: var(--spacing-xs);
+}
+
+.quote-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--spacing-sm);
 }
 
 .quote-box {
@@ -171,6 +197,132 @@ button:hover {
     color: var(--text-light);
     text-align: center;
     margin-top: var(--spacing-xs);
+}
+
+/* Modal styles */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: var(--modal-background);
+}
+
+.modal-content {
+    background-color: var(--card-background);
+    margin: 10% auto;
+    padding: 0;
+    width: 80%;
+    max-width: 700px;
+    border-radius: var(--border-radius);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    animation: modalFadeIn 0.3s;
+}
+
+@keyframes modalFadeIn {
+    from {opacity: 0; transform: translateY(-20px);}
+    to {opacity: 1; transform: translateY(0);}
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--spacing-md);
+    border-bottom: 1px solid #eee;
+}
+
+.modal-header h2 {
+    margin: 0;
+    color: var(--primary-color);
+}
+
+.close {
+    color: var(--text-light);
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close:hover {
+    color: var(--text-color);
+}
+
+.modal-body {
+    padding: var(--spacing-md);
+    max-height: 60vh;
+    overflow-y: auto;
+}
+
+/* History list styles */
+.history-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-sm);
+}
+
+.history-item {
+    padding: var(--spacing-sm);
+    border-radius: var(--border-radius);
+    background-color: #f9f9f9;
+    cursor: pointer;
+    transition: background-color var(--transition-speed);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.history-item:hover {
+    background-color: #f0f0f0;
+}
+
+.history-topic {
+    font-weight: 500;
+    flex: 1;
+}
+
+.history-timestamp {
+    font-size: 0.8rem;
+    color: var(--text-light);
+}
+
+/* Detail content styles */
+.detail-content {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+}
+
+.detail-topic {
+    font-size: 1.2rem;
+    font-weight: 500;
+    padding-bottom: var(--spacing-xs);
+    border-bottom: 1px solid #eee;
+}
+
+.detail-timestamp {
+    font-size: 0.9rem;
+    color: var(--text-light);
+    margin-bottom: var(--spacing-sm);
+}
+
+.detail-quotes-section {
+    margin-bottom: var(--spacing-md);
+}
+
+.detail-quotes-section h4 {
+    margin-bottom: var(--spacing-sm);
+    color: var(--primary-color);
+}
+
+.detail-quotes {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: var(--spacing-sm);
 }
 
 footer {

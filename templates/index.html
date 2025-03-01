@@ -6,12 +6,18 @@
     <title>Medium Article Movie Quotes</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
     <div class="container">
         <header>
             <h1>Medium Article Movie Quotes</h1>
             <p>Generate relevant movie quotes for your Medium article</p>
+            <div class="header-actions">
+                <button id="historyBtn" class="history-btn">
+                    <i class="fas fa-history"></i> History
+                </button>
+            </div>
         </header>
         
         <main>
@@ -29,21 +35,51 @@
             </div>
             
             <div class="results-container hidden" id="resultsContainer">
+                <div class="timestamp-display" id="timestampDisplay"></div>
+                
                 <div class="result-card">
-                    <h3>Standard Quote</h3>
-                    <div class="quote-box" id="quoteWithoutSearch">
-                        <div class="quote-content"></div>
-                        <div class="quote-source"></div>
+                    <h3>Standard Quotes</h3>
+                    <div class="quote-container" id="quotesWithoutSearchContainer">
+                        <!-- Quote boxes will be inserted here dynamically -->
                     </div>
                 </div>
                 
                 <div class="result-card">
-                    <h3>Enhanced Quote <span class="badge">Tavily Search</span></h3>
-                    <div class="quote-box" id="quoteWithSearch">
-                        <div class="quote-content"></div>
-                        <div class="quote-source"></div>
+                    <h3>Enhanced Quotes <span class="badge">Tavily Search</span></h3>
+                    <div class="quote-container" id="quotesWithSearchContainer">
+                        <!-- Quote boxes will be inserted here dynamically -->
                     </div>
-                    <p class="search-note">This quote is enhanced with Tavily search for better relevance.</p>
+                    <p class="search-note">These quotes are enhanced with Tavily search for better relevance.</p>
+                </div>
+            </div>
+            
+            <!-- History Modal -->
+            <div id="historyModal" class="modal">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h2>Quote History</h2>
+                        <span class="close">&times;</span>
+                    </div>
+                    <div class="modal-body">
+                        <div id="historyList" class="history-list">
+                            <!-- History items will be inserted here dynamically -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- History Detail Modal -->
+            <div id="detailModal" class="modal">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h2>Generation Details</h2>
+                        <span class="close detail-close">&times;</span>
+                    </div>
+                    <div class="modal-body">
+                        <div id="detailContent" class="detail-content">
+                            <!-- Detail content will be inserted here dynamically -->
+                        </div>
+                    </div>
                 </div>
             </div>
         </main>

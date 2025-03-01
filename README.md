@@ -4,8 +4,9 @@ A web application that generates relevant movie quotes for Medium articles based
 
 ## Features
 
-- Generate movie quotes relevant to your article topic
+- Generate multiple movie quotes relevant to your article topic
 - Compare standard quotes with search-enhanced quotes 
+- View and manage generation history with timestamps
 - Clean, responsive UI for easy interaction
 - Powered by OpenAI GPT-4o-mini and Tavily Search API
 
