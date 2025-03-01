@@ -17,7 +17,7 @@ A web application that generates relevant movie quotes for Medium articles based
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/yourusername/movie-quotes-app.git
+   git clone https://github.com/Laksh-star/movie-quotes-app.git
    cd movie-quotes-app
    ```
 
@@ -85,7 +85,7 @@ MIT
 
 ## Contributing
 
-Contributions, issues, and feature requests are welcome! Feel free to check the [issues page](https://github.com/yourusername/movie-quotes-app/issues).
+Contributions, issues, and feature requests are welcome! Feel free to check the [issues page](https://github.com/Laksh-star/movie-quotes-app/issues).
 
 ## Acknowledgements
 
